@@ -1,0 +1,78 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/LinearLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.cadnunsdev.horasdecampo.AddEntryActivity" >
+    <DatePicker
+        android:id="@+id/dpData"
+        android:layout_width="200dp"
+        android:layout_height="97dp"
+        android:calendarViewShown="false" >
+    </DatePicker>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+        <EditText
+            android:id="@+id/edtHs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="hs"
+            android:inputType="number" />
+        <EditText
+            android:id="@+id/edtMin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="min"
+            android:inputType="number" />
+        <EditText
+            android:id="@+id/edtLvs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Lvs"
+            android:inputType="number" />
+           <EditText
+        android:id="@+id/edtTrat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Trat"
+        android:inputType="number" />
+    <EditText android:id="@+id/edtVideos" android:hint="Videos" android:inputType="number" android:layout_height="wrap_content" android:layout_width="wrap_content"/>
+    <EditText android:id="@+id/edtRevistas" android:hint="Rvs" android:inputType="number" android:layout_height="wrap_content" android:layout_width="wrap_content"/>
+	
+    </LinearLayout>
+     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+        <Spinner
+            android:id="@+id/spEstudantes"
+            android:layout_width="114dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.09"
+             />
+        <Button
+            android:id="@+id/btnAddEstudantes"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Incluir"
+            android:layout_weight="0.15" />
+    </LinearLayout>
+     
+	<Button android:id="@+id/btnSalvar" 
+	    android:onClick="btnSalvar_Click"
+	    android:text="Salvar" 
+	    android:inputType="number" 
+	    android:layout_height="wrap_content" 
+	    android:layout_width="wrap_content"/>
+	<ListView
+            android:id="@+id/lvEstudosDirigidos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+</LinearLayout>

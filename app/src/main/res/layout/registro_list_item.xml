@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:padding="20dp"
+    >
+    
+    <LinearLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="horizontal" 
+	    android:id="@+id/formsControls"
+	    android:visibility="gone"
+	    >
+    <EditText android:id="@+id/edtHs" android:hint="hs" android:inputType="numberDecimal" android:layout_height="wrap_content" android:layout_width="wrap_content"/>
+    <EditText android:id="@+id/edtMin" android:hint="min" android:inputType="numberDecimal" android:layout_height="wrap_content" android:layout_width="wrap_content"/>
+    <EditText android:id="@+id/edtLvs" android:hint="Lvs" android:inputType="numberDecimal" android:layout_height="wrap_content" android:layout_width="wrap_content"/>
+    <EditText android:id="@+id/edtTrat" android:hint="Trat" android:inputType="numberDecimal" android:layout_height="wrap_content" android:layout_width="wrap_content"/>
+    <EditText android:id="@+id/edtVideos" android:hint="Videos" android:inputType="numberDecimal" android:layout_height="wrap_content" android:layout_width="wrap_content"/>
+    <EditText android:id="@+id/edtRevistas" android:hint="Rvs" android:inputType="numberDecimal" android:layout_height="wrap_content" android:layout_width="wrap_content"/>
+	</LinearLayout>
+    <LinearLayout 
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="horizontal" 
+	    android:id="@+id/displayTextControls"
+	    android:visibility="visible"
+	    
+	    >
+	    
+    <TextView android:id="@+id/displayDate"
+        android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:text="25/01/2016"	
+	    android:textSize="20dp" 
+	    android:layout_marginRight="10dp"   
+        />
+    <TextView
+        android:id="@+id/displayInfos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20dp" 
+        android:text="20hs, 3 tratados, 4 revistas, 2 revisitas" />
+	</LinearLayout>
+</LinearLayout>

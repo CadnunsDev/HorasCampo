@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.cadnunsdev.horasdecampo"
+    android:versionCode="1"
+    android:versionName="1.0">
+
+    <uses-sdk
+        android:minSdkVersion="16"
+        android:targetSdkVersion="21" />
+
+    <android:uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <android:uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <android:uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".MesesActivity"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".AddEntryActivity"
+            android:label="@string/title_activity_add_entry"></activity>
+        <activity
+            android:name=".RegistrosActivity"
+            android:label="@string/title_activity_registros"></activity>
+        <activity
+            android:name=".EstudantesActivity"
+            android:label="@string/title_activity_estudantes"></activity>
+        <activity
+            android:name=".ListaEstudantesAtivity"
+            android:label="@string/title_activity_lista_estudantes_ativity"></activity>
+        <activity
+            android:name=".FormEstudantesActivity"
+            android:label="@string/title_activity_form_estudantes"></activity>
+        <activity
+            android:name=".RegistroDetailsActivity"
+            android:label="@string/title_activity_registro_details"></activity>
+        <activity
+            android:name=".RelatorioMensalActivity"
+            android:label="@string/title_activity_relatorio_mensal"
+            android:parentActivityName=".RegistrosActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.cadnunsdev.horasdecampo.RegistrosActivity" />
+        </activity>
+    </application>
+
+</manifest>

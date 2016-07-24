@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Horas de Campo</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_add_entry">AddEntryActivity</string>
+    <string name="title_activity_registros">RegistrosActivity</string>
+    <string name="novo_registro">Novo Registro</string>
+    <string name="title_activity_estudantes">Meus Estudantes</string>
+    <string name="title_activity_lista_estudantes_ativity">Lista Estudantes</string>
+    <string name="title_activity_form_estudantes">FormEstudantesActivity</string>
+    <string name="action_ver_todos">Ver todos</string>
+    <string name="string_excluir_confirm">Excluir?</string>
+    <string name="string_cancelar">Cancelar</string>
+    <string name="title_activity_registro_details">RegistroDetailsActivity</string>
+    <string name="title_activity_relatorio_mensal">RelatorioMensalActivity</string>
+</resources>
