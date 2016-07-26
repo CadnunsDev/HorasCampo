@@ -1,5 +1,7 @@
 package horasdecampo.models;
 
+import com.j256.ormlite.dao.ForeignCollection;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -63,5 +65,46 @@ public class Mes implements Serializable {
 	}
 	public int getQuantRegistros() {
 		return quant;
+	}
+
+	public String getTotalHoras() {
+		return HorasUtils.doubleHorasToString(sumHoras());
+	}
+
+	public Integer getTotalVideos() {
+		int videos = 0;
+		for (Registro registro: registros) {
+			videos += registro.getVideoExibidos();
+		}
+		return videos;
+	}
+
+	public Integer somarPublicacoes() {
+		int count = 0;
+		for (Registro registro: registros) {
+			count += (registro.getPublicacoes() + registro.getRevistas() + registro.getFolhetos());
+		}
+		return count;
+	}
+
+	public Integer somarRevisitas() {
+		int count = 0;
+		for (Registro registro: registros) {
+			count += registro.getRevisitas();
+		}
+		return count;
+	}
+
+	public Integer somarEstudosDirigidos() {
+		ArrayList<Estudante> lista = new ArrayList<>();
+		for (Registro registro: registros) {
+			ForeignCollection<RevisitaEstudante> revisitaEstudantes  = registro.getEstudosDirigidos();
+			for (RevisitaEstudante revisitaEstudante: revisitaEstudantes){
+				Estudante estudante = revisitaEstudante.getEstudante();
+				if(!lista.contains(estudante))
+					lista.add(estudante);
+			}
+		}
+		return lista.size();
 	}
 }
