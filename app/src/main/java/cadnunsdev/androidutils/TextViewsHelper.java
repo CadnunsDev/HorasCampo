@@ -7,11 +7,14 @@ import android.widget.TextView;
 
 public class TextViewsHelper {
 	
-	public static int getInt(Activity act, int resourceId){
-		try {
-			TextView view = (TextView)act.findViewById(resourceId);
-			return Integer.parseInt(view.getText().toString());
+	public static <T extends TextView> int  getInt(Class<T> type,  Activity act, int resourceId){
+        String valor = "0";
+        try {
+			T view = (T)act.findViewById(resourceId);
+			valor = view.getText().toString();
+			return Integer.parseInt(valor);
 		} catch (NumberFormatException e) {
+			String msg = e.getMessage();
 			return 0;
 		}
 	}

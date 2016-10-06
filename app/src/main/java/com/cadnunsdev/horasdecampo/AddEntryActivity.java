@@ -28,6 +28,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
 
@@ -117,11 +118,13 @@ public class AddEntryActivity extends Activity {
 			data.clear();
 			data.set(datePicket.getYear(),mount, datePicket.getDayOfMonth());
 			registro.setData(data.getTime());
-			registro.setHoras(TextViewsHelper.getInt(this, R.id.edtHs), TextViewsHelper.getInt(this, R.id.edtMin));
-			registro.setLivros(TextViewsHelper.getInt(this, R.id.edtLvs));
-			registro.setFolhetos(TextViewsHelper.getInt(this, R.id.edtTrat));
-			registro.setVideoExibidos(TextViewsHelper.getInt(this, R.id.edtVideos));
-			registro.setRevistas(TextViewsHelper.getInt(this, R.id.edtRevistas));
+			registro.setHoras(TextViewsHelper.getInt(EditText.class,this, R.id.edtHs), TextViewsHelper.getInt(EditText.class,this, R.id.edtMin));
+			registro.setVideoExibidos(TextViewsHelper.getInt(EditText.class,this, R.id.edtVideos));
+			registro.setRevistas(
+               TextViewsHelper.getInt(EditText.class,this, R.id.edtRevistas)+
+               TextViewsHelper.getInt(EditText.class,this, R.id.edtLvs)+
+               TextViewsHelper.getInt(EditText.class, this, R.id.edtTrat)
+            );
 			int revisitasAvulsas = 0;
 			registro.setRevisitas(estudosDirigidos.size() + revisitasAvulsas);
 			ForeignCollection<RevisitaEstudante> revisitas = registroRepository.getEmptyForeignCollection("estudosDirigidos");

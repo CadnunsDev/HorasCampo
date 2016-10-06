@@ -6,6 +6,7 @@ import java.util.List;
 
 import cadnunsdev.PtBrUtils.DateTimeUtils;
 import cadnunsdev.androidutils.Dialogs;
+import cadnunsdev.androidutils.ResourcesHelper;
 import cadnunsdev.androidutils.ToastExt;
 
 import com.cadnunsdev.horasdecampo.R.id;
@@ -60,16 +61,18 @@ public class RegistroDetailsActivity extends Activity {
 		setTitle(registroModel.toString());
 		TextView tvHtml = (TextView)findViewById(id.tvHtml);
 		WebView wbInfos = (WebView)findViewById(id.wbInfos);
-		tvHtml.setText(getDefinitionListHtml(registroModel));
-		tvHtml.setTextSize(20);
-		wbInfos.loadData(getDefinitionListHtml(registroModel),  "text/html", "UTF-8");
+		//tvHtml.setText(getDefinitionListHtml(registroModel));
+		//tvHtml.setTextSize(20);
+		String template = ResourcesHelper.LoadFile(this, "registro_detalhes.html");
+		template = template.replace("{{conteudo}}", getDefinitionListHtml(registroModel));
+		wbInfos.loadData(template,  "text/html", "UTF-8");
 	}
 
 	
 	
 	private String getDefinitionListHtml(Registro rg) {
 		StringBuilder sb = new StringBuilder();
-		sb.append("<h2>Data "+rg.getDataCadastroString()+"<h2>");
+		sb.append("<h2>Data "+rg.getDataCadastroString("dd/MM/yyyy")+"<h2>");
 		sb.append("<table><tr>");
 		sb.append("<td>Horas</td>");
 		sb.append("<td>Revistas</td>");
