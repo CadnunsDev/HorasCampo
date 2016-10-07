@@ -21,6 +21,12 @@
         android:layout_height="wrap_content" 
         android:text="Gerenciar Estudantes"
         android:onClick="btnEstudantes_Click"/>
+    <Button
+        android:id="@+id/btnCsv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="backUp csv"
+        android:onClick="btnGerarCSVRelatorios"/>
     <ListView
         android:id="@+id/lstMeses"
         android:layout_width="wrap_content"

@@ -6,17 +6,27 @@ import java.util.ArrayList;
  * Created by Tiago Silva on 06/10/2016.
  */
 public class CsvRegistroHoras {
-    private float horas;
+    private String data;
+    private double horas;
     private int publicacoes;
     private int revisitas;
     private int videos;
+
+    public String getData() {
+        return data;
+    }
+
+    public void setData(String data) {
+        this.data = data;
+    }
+
     private ArrayList<String> estudos;
 
-    public Float getHoras() {
+    public Double getHoras() {
         return horas;
     }
 
-    public void setHoras(float horas) {
+    public void setHoras(double horas) {
         this.horas = horas;
     }
 

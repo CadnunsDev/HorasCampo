@@ -3,6 +3,9 @@ package horasdecampo.builders;
 import android.content.Context;
 import android.os.Environment;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import horasdecampo.models.viewmodels.CsvRegistroHoras;
@@ -19,13 +22,20 @@ public class CsvFactoryBuilder {
     private static final String EstudosDirigidosKey = "{EstudosDirigidos}";
     private static final String FieldDivider = ";";
     private static final String EstudosDivider = "|";
+    private String contentFile = "";
+    private static final String DataKey = "{Data}";
 
     public CsvFactoryBuilder(){
-        _outputFolder = Environment.getExternalStorageDirectory()+"HorasCampoFiles/";
+        _outputFolder = Environment.getExternalStorageDirectory()+"/HorasCampoFiles/";
+        File file = new File(_outputFolder);
+        if (!file.exists()) {
+            file.mkdirs();
+        }
     }
-    public void loadData(ArrayList<CsvRegistroHoras> dados){
-        String header = "Horas;Publicacoes;Revisitas;Videos;EstudosDirigidos;";
+    public CsvFactoryBuilder loadData(ArrayList<CsvRegistroHoras> dados){
+        String header = "Data;Horas;Publicacoes;Revisitas;Videos;EstudosDirigidos;";
         String detalhes =
+                DataKey+ FieldDivider+
                 HorasKey+ FieldDivider+
                 PublicacoesKey+ FieldDivider+
                 RevisitasKey+ FieldDivider+
@@ -34,6 +44,7 @@ public class CsvFactoryBuilder {
         StringBuilder contentBuilder = new StringBuilder(header);
         for (CsvRegistroHoras registro :dados) {
             String linha = "\n"+(detalhes
+                    .replace(DataKey, registro.getData())
                     .replace(HorasKey, registro.getHoras().toString())
                     .replace(PublicacoesKey, registro.getPublicacoes().toString())
                     .replace(RevisitasKey, registro.getRevisitas().toString())
@@ -41,6 +52,8 @@ public class CsvFactoryBuilder {
                     .replace(EstudosDirigidosKey, getEstudosAsString(registro)));
             contentBuilder = contentBuilder.append(linha);
         }
+        contentFile = contentBuilder.toString();
+        return  this;
     }
 
     private String getEstudosAsString(CsvRegistroHoras registro) {
@@ -53,4 +66,28 @@ public class CsvFactoryBuilder {
     }
 
 
+    public void Save() {
+
+        if (contentFile.length() > 0){
+            final File myFile = new File(_outputFolder, "backup_horasCampo" + ".csv");
+
+            try {
+                if (!myFile.exists())
+                {
+                    try {
+                        myFile.createNewFile();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+
+                FileOutputStream fos = new FileOutputStream(myFile);
+
+                fos.write(contentFile.getBytes());
+                fos.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 }
